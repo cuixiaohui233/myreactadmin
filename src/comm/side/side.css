@@ -1,0 +1,20 @@
+.side-div{
+  width:12%;
+  /*margin-top:50px;*/
+  padding-top: 5px;
+  height:588px;
+  background-color: #f8f8f8;
+  float: left;
+}
+span{
+  font-size:14px;
+}
+#minu a{
+  color:#766;
+}
+#minu a:hover{
+  color:#108ee9;
+}
+#minu a:visited{
+  text-decoration: none;
+}

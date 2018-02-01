@@ -1,0 +1,36 @@
+.ant-calendar-picker{
+  display: inline-block;
+  float: left;
+}
+.fanwei{
+  display: inline-block;
+  float: left;
+  margin-left: 6%;
+}
+.input-ziji{
+  width:300px;
+  margin-left: 68px;
+}
+.date-input{
+  float: left;
+  width:85%;
+  height:80px;
+  line-height:80px;
+}
+.ant-calendar-picker div{
+  display: inline-block;
+}
+.ant-calendar-picker{
+  margin-left:10px;
+}
+#search,#all{
+  line-height:26px;
+  width: 90px;
+  margin-left:20px;
+  background:#108ee9;
+  border:1px solid #108ee9;
+  border-radius: 4px;
+  color:#fff;
+  font-size: 14px;
+  font-weight: bold;
+}

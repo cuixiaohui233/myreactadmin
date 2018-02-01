@@ -1,0 +1,17 @@
+.page_parent{
+  width:85%;
+  height:auto;
+  padding:0 5% 0 5%;
+  float: left;
+  /*position:absolute;*/
+  margin-top: 30px;
+}
+.page_parent span{
+  display: inline-block;
+  float: left;
+}
+.ant-pagination{
+  width:auto;
+  height:30px;
+  float: right;
+}

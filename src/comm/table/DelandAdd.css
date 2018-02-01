@@ -1,0 +1,28 @@
+.DelandAdd{
+  width:85%;
+  height:50px;
+  background: #f5fafe;
+  border: solid 1px #eee;
+  width: 75%;
+  float: left;
+  margin-left: 5%;
+  margin-bottom: 30px;
+  padding:10px 0 0 20px;
+  /*align-items:center;*/
+  /*justify-content: center;*/
+}
+.first_child,.last_child{
+  width:100px;
+  height:31px;
+  background: #dd514c;
+  border:none;
+  border-radius: 5px;
+  color:#fff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.last_child{
+  background: #5a98de;
+  margin-left:10px;
+}

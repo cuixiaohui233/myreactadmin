@@ -1,0 +1,20 @@
+table{
+  width:75%;
+  float: left;
+  margin-left: 5%;
+  /*padding-left:30px;*/
+  /*padding-right:30px;*/
+  font-size: 14px;
+  border:1px solid #ddd;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+th{
+  background: #f5fafe;
+}
+td,th{
+  border-bottom:1px solid #ddd;
+  border-right:1px solid #ddd;
+  text-align: center;
+  line-height: 40px;
+}

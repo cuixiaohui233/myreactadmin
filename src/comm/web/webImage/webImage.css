@@ -1,0 +1,35 @@
+#touxiang{
+  width:48px;
+  height:48px;
+  float: left;
+}
+#biaoti{
+  display: inline-block;
+  width:auto;
+  height:48px;
+  line-height:48px;
+  float: left;
+  font-size:20px;
+  color:#494949;
+  /*font-weight:bold;*/
+}
+.webpage_image{
+  width:auto;
+  height: 48px;
+  line-height: 48px;
+}
+.webpage_image1 .img_little{
+  display: inline-block;
+  width:170px;
+  height:113px;
+  margin-right:30px;
+}
+.webpage_read1{
+  height:250px;
+}
+.webpage_image1{
+  margin-top:50px;
+}
+#touxiang{
+  margin-right:20px;
+}

@@ -1,0 +1,126 @@
+from{
+  width:60%;
+  height:60%;
+  margin-left:20%;
+  margin-top:5%;
+  position: absolute;
+  z-index: 99999;
+  left:0;
+  top:0;
+  /*background: red;*/
+  padding:30px 0 0 90px;
+}
+.addContent{
+  width:100%;
+  height:100%;
+  background:#fff;
+  position: absolute;
+  /*z-index: 99999;*/
+  left:0;
+  top:0;
+}
+.off{
+  display:inline-block;
+  width:20px;
+  height:20px;
+  line-height: 20px;
+  text-align:center;
+  position:absolute;
+  right:80px;
+  top:10px;
+  font-size:50px;
+}
+.none{
+  display: none;
+}
+.title_short{
+  width:100%;
+  height:40px;
+  line-height:40px;
+  /*background: blue;*/
+  margin-bottom:10px;
+}
+.title_short span{
+  display: inline-block;
+  width:12%;
+  height: 40px;
+  text-align: right;
+  float: left;
+}
+.title_short input,.title_short select{
+  display: inline-block;
+  width:590px;
+  height: 40px;
+  float: left;
+}
+.text_short{
+  width:100%;
+  height:100px;
+  margin-bottom:5px;
+  position: relative;
+}
+.title_item{
+  width:12%;
+  height: 40px;
+  text-align: right;
+  display: inline-block;
+  position: absolute;
+  /*float: left;*/
+  top:0;
+  left:0;
+}
+.textarea{
+  display: inline-block;
+  /*float: left;*/
+  overflow: auto;
+  resize:none;
+  position: absolute;
+  /*float: left;*/
+  top:0;
+  left:12%;
+}
+from i{
+  color:red;
+}
+.button_short{
+  position: absolute;
+  bottom:100px;
+  left:450px;
+}
+.button1{
+  width:100px;
+  height:30px;
+  line-height: 30px;
+  background:#5a98de;
+  border:none;
+  border-radius: 4px;
+  font-size: 14px;
+  color:#fff;
+  margin-right:10px;
+}
+.button2{
+  width:80px;
+  height:30px;
+  line-height: 30px;
+  background:#3bb3f1;
+  border:none;
+  border-radius: 4px;
+  font-size: 14px;
+  color:#fff;
+  margin-right:10px;
+}
+.button3{
+  width:50px;
+  height:30px;
+  line-height: 30px;
+  background:#e5e5e5;
+  border:none;
+  border-radius: 4px;
+  font-size: 14px;
+  color:#000;
+}
+.nologin{
+  width:200px;
+  height:500px;
+  background: red;
+}

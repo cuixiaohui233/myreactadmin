@@ -1,0 +1,11 @@
+.ant-breadcrumb{
+  background:#f5f5f5;
+  float: left;
+  padding-left:50px;
+  height:50px;
+  width:88%;
+  line-height: 50px;
+}
+.ant-breadcrumb-link,.ant-breadcrumb-link a{
+  font-size: 14px;
+}
