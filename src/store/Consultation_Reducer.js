@@ -1,6 +1,5 @@
 import { applymiddleware, create} from 'redux';
 import data from '../json/consult.json';
-console.log(data);
 
 let consultationInitialState = {
     title:['','id','title','item','time','author','content','status','todo'],
