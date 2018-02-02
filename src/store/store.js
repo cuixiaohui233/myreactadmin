@@ -3,7 +3,6 @@ import thunk from 'redux-thunk';
 
 import { consultationReducer } from './Consultation_Reducer';
 
-console.log(consultationReducer);
 const appReducer = combineReducers({
     consultationReducer
 });

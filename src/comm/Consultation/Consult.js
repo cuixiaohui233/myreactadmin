@@ -426,9 +426,9 @@ function getItem(data){
 }
 
 function mapStateToProps(state, ownProps){
-  console.log(state.title);
   return {
-      title:state.consultationReducer.title
+      title:state.consultationReducer.title,
+      initdata:state.consultationReducer.data
   }
 }
 const mapDispatchToProps = {
