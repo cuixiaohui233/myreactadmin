@@ -6,8 +6,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 import { Icon,Radio } from 'antd';
-import App from '../../App';
-import Webpage from '../web/homepage';
+import { Homepage as Webpage} from '../web/homepage';
 let member = require('../web/webImage/images/user_normal.jpg')
 let uadmin = require('../web/webImage/images/timg.jpg')
 const RadioGroup = Radio.Group;

@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
   Route,
@@ -13,15 +14,15 @@ class Read extends Component{
   }
   render(){
 //  console.log(this.props.stateBool);
-    let data = JSON.parse(localStorage.getItem('article'));
+    let data = this.props.data;
     // console.log(data);
     let data1 = Object.assign(data);
     let list = null;
     list = data1.map((e,i)=>{
       return <Link to={'/web/read/'+e.id}><div className="webpage_read">
-        <p className="web_read_img_span"><img src={e.avatar} /><span className="authorname">{e.作者}</span></p>
-        <span id="read_title" >{e.标题}</span>
-        <p className="read_title_p">{e.内容}</p>
+        <p className="web_read_img_span"><img src={e.avatar} /><span className="authorname">{e.author}</span></p>
+        <span id="read_title" >{e.title}</span>
+        <p className="read_title_p">{e.content}</p>
       </div></Link>
     })
     return(
@@ -43,4 +44,20 @@ class Read extends Component{
     )
   }
 }
+
+function mapStateToProps(state, ownProps){
+    return {
+        title:state.consultationReducer.title,
+        data:state.consultationReducer.data.data
+    }
+}
+const mapDispatchToProps = {
+
+};
+
+Read = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Read);
+
 export default Read;

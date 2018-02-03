@@ -5,9 +5,9 @@ class Page extends Component{
   sizechange = (page)=>{
     // console.log(page)
     this.props.changepage(page);
-  }
+  };
   render(){
-    let page = Math.ceil(this.props.data.length/3)*10
+    let page = Math.ceil(this.props.data.length/3)*10;
       // console.log(page);
     return (
       <div className="page_parent">

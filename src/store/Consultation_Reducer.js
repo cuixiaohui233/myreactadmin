@@ -2,7 +2,7 @@ import { applymiddleware, create} from 'redux';
 import data from '../json/consult.json';
 
 let consultationInitialState = {
-    title:['','id','title','item','time','author','content','status','todo'],
+    title:['','id','标题','分类','更新时间','作者','内容','状态','操作'],
     data:data,
     power:[
         {name:'admin',type:'admin'},

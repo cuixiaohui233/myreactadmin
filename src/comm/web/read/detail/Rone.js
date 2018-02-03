@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
   Route,
@@ -30,7 +31,8 @@ class Rone extends Component{
   }
   componentDidMount(){
     let that = this;
-    let data = JSON.parse(localStorage.getItem('data')) || JSON.parse(localStorage.getItem('article')) ;
+    let data = this.props.data.data;
+    console.log(data);
     let data1 = Object.assign(data);
     data1 = data1.find((e)=>e.id == this.state.url);
     if(data1.type){
@@ -64,8 +66,10 @@ class Rone extends Component{
     })
 
   }
+
   componentDidUpdate() {
-    let data = JSON.parse(localStorage.getItem('data')) || JSON.parse(localStorage.getItem('article')) ;
+    let data = this.props.data.data;
+    console.log(data);
     let data1 = Object.assign(data);
     data1 = data1.find((e)=>e.id == this.state.url);
     if(data1.type){
@@ -279,9 +283,25 @@ $.ajax({
     console.log(data);
     pitem = data.comments;
   }
-})
+});
+
 function getItem(data){
   // console.log(pitem)
   return JSON.parse(localStorage.getItem(data)) || pitem
 }
+
+function mapStateToProps(state, ownProps){
+    return {
+        title:state.consultationReducer.title,
+        data:state.consultationReducer.data
+    }
+}
+const mapDispatchToProps = {
+
+};
+
+Rone = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Rone);
 export default Rone;

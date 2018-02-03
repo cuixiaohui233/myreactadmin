@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
   Route,
@@ -145,7 +146,6 @@ class Homepage extends Component{
     // console.log(getItem('img'));
     // setTimeout(()=>{
       this.setState({
-        article:getItem('article'),
         img:getItem('img'),
         market:getItem('market')
       });
@@ -198,19 +198,16 @@ class Homepage extends Component{
     }
   }
   render(){
-    let {img,article,market} = this.state;
+    let {img,market} = this.state;
+    let { data } = this.props;
     let img1 = Object.assign(img);
     let image = null;
     let image1 = null;
-    // console.log(article)
-    let article1 = Object.assign(article);
+    let article1 = data.data;
     let art = null;
     let art1 = null;
     let market1 = Object.assign(market);
     let supermarket = null;
-    if(article.length){
-      localStorage.setItem('article',JSON.stringify(article));
-    }
     if(img.length){
       localStorage.setItem('img',JSON.stringify(img));
     }
@@ -220,7 +217,7 @@ class Homepage extends Component{
     image = img1.map((e,i)=>{
       let data = {
         img:e.封面,
-        txt:e.标题,
+        txt:e.title,
       }
       if(i <= 3){
         return <dl key={i+1} className="img_dl">
@@ -238,7 +235,7 @@ class Homepage extends Component{
     image1 = img1.map((e,i)=>{
       let data = {
         img:e.封面,
-        txt:e.标题,
+        txt:e.title,
         id:e.id,
         key:i
       }
@@ -259,16 +256,16 @@ class Homepage extends Component{
     art = article1.map((e,i)=>{
       return <li  key={i+1}
         onClick={this.artClick}
-        ><Link to={'/homeimage/'+e.id} id = {e.id}>{e.标题}</Link></li>
+        ><Link to={'/homeimage/'+e.id} id = {e.id}>{e.title}</Link></li>
     })
     art1 = article1.map((e,i)=>{
       if(i<=4){
         return <Link key={i+6} to={'/homeimage/'+e.id} id = {e.id}>
                 <div key={i+1} id="author">
-                  <div key={i+2} className="art_author"><img src={e.avatar} className="art_img"/><span>{e.作者}</span></div>
+                  <div key={i+2} className="art_author"><img src={e.avatar} className="art_img"/><span>{e.author}</span></div>
                   <div key={i+3} className="art_item">
-                    <p key={i+4}>{e.标题}</p>
-                    <p key={i+5} className="art_txt">{e.内容}</p>
+                    <p key={i+4}>{e.title}</p>
+                    <p key={i+5} className="art_txt">{e.content}</p>
                   </div>
                 </div>
               </Link>
@@ -290,7 +287,7 @@ class Homepage extends Component{
                   <div key={i+5}  className="p-brand">
                     <a key={i+4}  href="https://market.douban.com/shop/miniteaset/" target="_blank">小巨蛋市集</a>
                   </div>
-                  <div key={i+3}  key={i+1}  className="p-price">
+                  <div className="p-price">
                     <del key={i+2}  className="price">736.00</del>
                     <i key={i+1}  className="price">368.00</i>
                   </div>
@@ -402,138 +399,139 @@ class Homepage extends Component{
     )
   }
 }
+
 function getItem(data){
   if(data === 'article'){
       return JSON.parse(localStorage.getItem('article')) || [
         {
-            标题:'为什么《圆桌派》的观众老骂蒋方舟？',
-            作者:'魏小河',
+            title:'为什么《圆桌派》的观众老骂蒋方舟？',
+            author:'魏小河',
             avatar:u1,
             更新时间:'2017-08-27 14:00:56',
-            内容:'一 我是《锵锵三人行》的忠实观众，顺理成章的，也成为《圆桌派》的观众。 和以前...',
+            content:'一 我是《锵锵三人行》的忠实观众，顺理成章的，也成为《圆桌派》的观众。 和以前...',
             id:633196260,
             分类:'行业行情',
             发布状态:'发布',
             动作:'审核',
             checked:false
           },{
-            标题:'独自在家',
-            作者:'安歌',
+            title:'独自在家',
+            author:'安歌',
             avatar:u2,
             更新时间:'2017-08-26 17:35:54',
             id:633649108,
-            内容:'在这之前我一直以为一成不变地等待我的世界失陷了，当我还不知道前方是什么，后方...',
+            content:'在这之前我一直以为一成不变地等待我的世界失陷了，当我还不知道前方是什么，后方...',
             分类:'行业行情',
             发布状态:'发布',
             动作:'审核',
             checked:false
           },{
-            标题:'当我逛书展不买书时我还能做些什么',
+            title:'当我逛书展不买书时我还能做些什么',
             id:634206154,
-            作者:'向三峡',
+            author:'向三峡',
             avatar:u3,
             更新时间:'2017-08-27 06:49:07',
-            内容:'今年是我第三次参加上海书展，开幕前，新同事求带，微信问我何时去，我告其8月18日...',
+            content:'今年是我第三次参加上海书展，开幕前，新同事求带，微信问我何时去，我告其8月18日...',
             分类:'行业行情',
             发布状态:'发布',
             动作:'审核',
             checked:false
           },{
-            标题:'艺术又终结了吗？',
+            title:'艺术又终结了吗？',
             id:633311053,
-            作者:'神经现实',
+            author:'神经现实',
             avatar:u4,
             更新时间:'2017-08-26 16:41:41',
-            内容:'越来越多的艺术品和艺术形式以前所未有的数量产出。艺术馆普及世界各地，在有些国...',
+            content:'越来越多的艺术品和艺术形式以前所未有的数量产出。艺术馆普及世界各地，在有些国...',
             分类:'行业行情',
             发布状态:'发布',
             动作:'审核',
             checked:false
           },{
-            标题:'终于，和林家栋谈了谈电影、表演和金像奖影帝',
+            title:'终于，和林家栋谈了谈电影、表演和金像奖影帝',
             id:633528924,
-            作者:'支离疏',
+            author:'支离疏',
             avatar:u5,
             更新时间:'2017-08-27 11:34:54',
-            内容:'',
+            content:'',
             分类:'行业行情',
             发布状态:'发布',
             动作:'审核',
             checked:false
           },{
-            标题:'新品种草&经典回顾丨谁能不爱哑光口红',
+            title:'新品种草&经典回顾丨谁能不爱哑光口红',
             id:634021319,
-            作者:'芙蕾娅Freya',
+            author:'芙蕾娅Freya',
             avatar:u6,
             更新时间:'2017-08-26 00:31:06',
-            内容:'',
+            content:'',
             分类:'行业行情',
             发布状态:'发布',
             动作:'审核',
             checked:false
           },{
-            标题:'青梅竹马这件小事',
+            title:'青梅竹马这件小事',
             id:634104356,
-            作者:'赤豆年糕',
+            author:'赤豆年糕',
             avatar:u7,
             更新时间:'2017-08-27 12:28:12',
-            内容:'',
+            content:'',
             分类:'行业行情',
             发布状态:'发布',
             动作:'审核',
             checked:false
           },{
-            标题:'今 敏先生去世的第七年，回忆他曾经的自叙',
+            title:'今 敏先生去世的第七年，回忆他曾经的自叙',
             id:634483634,
-            作者:'机核网',
+            author:'机核网',
             avatar:u8,
             更新时间:'2017-08-27 12:51:31',
-            内容:'',
+            content:'',
             分类:'行业行情',
             发布状态:'发布',
             动作:'审核',
             checked:false
           },{
-            标题:'希望还是虚妄？十字路口的国产动画电影',
+            title:'希望还是虚妄？十字路口的国产动画电影',
             id:634444806,
-            作者:'白鹅纪',
+            author:'白鹅纪',
             avatar:u9,
             更新时间:'2017-08-25 21:50:48',
-            内容:'',
+            content:'',
             分类:'行业行情',
             发布状态:'发布',
             动作:'审核',
             checked:false
           },{
-            标题:'7位女摄影师拍同一对姑娘',
+            title:'7位女摄影师拍同一对姑娘',
             id:634529429,
-            作者:'七七',
+            author:'七七',
             avatar:u10,
             更新时间:'2017-08-27 14:00:36',
-            内容:'',
+            content:'',
             分类:'行业行情',
             发布状态:'发布',
             动作:'审核',
             checked:false
           },{
-            标题:'这支香，仿佛收集了整个夏天的阳光',
+            title:'这支香，仿佛收集了整个夏天的阳光',
             id:634074646,
-            作者:'神奇蘑蘑菇',
+            author:'神奇蘑蘑菇',
             avatar:u11,
             更新时间:'2017-08-26 17:15:51',
-            内容:'',
+            content:'',
             分类:'行业行情',
             发布状态:'发布',
             动作:'审核',
             checked:false
           },{
-            标题:'我唐日常（十五）猝不及防的更新',
+            title:'我唐日常（十五）猝不及防的更新',
             id:634525453,
-            作者:'春坊正字',
+            author:'春坊正字',
             uid: 51610855,
             avatar:u12,
             更新时间:'2017-08-27 09:04:09',
-            内容:'',
+            content:'',
             分类:'行业行情',
             发布状态:'发布',
             动作:'审核',
@@ -543,7 +541,7 @@ function getItem(data){
   }else if(data === 'img'){
       return JSON.parse(localStorage.getItem('img')) || [
         {
-          标题:'没有青海湖和茶卡的青海',
+          title:'没有青海湖和茶卡的青海',
           id:1651058003,
           封面:img1,
           更新时间:'2017-8-15',
@@ -559,7 +557,7 @@ function getItem(data){
 
         },
         {
-          标题:'「人们」',
+          title:'「人们」',
           id:1638051845,
           封面:img2,
           更新时间:'2017-8-15',
@@ -573,7 +571,7 @@ function getItem(data){
           img:[img3_1,img3_2,img3_3,img3_4,img3_5,img3_6]
 
         },{
-         标题:'总有新的世界在等你－日本',
+         title:'总有新的世界在等你－日本',
          id:1651158281,
          封面:img3,
          更新时间:'2017-8-15',
@@ -586,7 +584,7 @@ function getItem(data){
          num:97,
          img:[img1_1,img1_2,img1_3,img1_4,img1_1,img1_5]
         },{
-          标题:'看 云',
+          title:'看 云',
           id:1651235694,
           封面:img4,
           更新时间:'2017-8-15',
@@ -600,7 +598,7 @@ function getItem(data){
           img:[img4_1,img4_2,img4_3,img4_4,img4_5,img4_6]
 
         },{
-          标题:'在商业社会做个堂堂正正的废物会死吗？',
+          title:'在商业社会做个堂堂正正的废物会死吗？',
           id:1651117401,
           封面:img5,
           更新时间:'2017-8-15',
@@ -613,7 +611,7 @@ function getItem(data){
           num:150,
           img:[img5_1,img5_2,img5_3,img5_4,img5_5,img5_6]
         },{
-          标题:'萨尔兹卡默古特',
+          title:'萨尔兹卡默古特',
           id:1649846355,
           封面:img6,
           更新时间:'2017-8-15',
@@ -626,7 +624,7 @@ function getItem(data){
           num:150,
           img:[img6_1,img6_2,img6_3,img6_4,img6_5,img6_6]
         },{
-          标题:'夏天去香港看海',
+          title:'夏天去香港看海',
           id:1650648598,
           封面:img7,
           更新时间:'2017-8-15',
@@ -639,7 +637,7 @@ function getItem(data){
           num:150,
           img:[img7_1,img7_2,img7_3,img7_4,img7_5,img7_6]
         },{
-          标题:'北京红冶钢厂',
+          title:'北京红冶钢厂',
           id:1651038482,
           封面:img8,
           更新时间:'2017-8-15',
@@ -662,7 +660,7 @@ function getItem(data){
     // }else{
       return JSON.parse(localStorage.getItem('market')) || [{
         id:1,
-        标题:'悦诗风吟',
+        title:'悦诗风吟',
         封面:market1,
         图片名称:'innisfree 悦诗风吟 绿茶籽精萃水分菁露 80ml/瓶',
         href:'https://market.douban.com/item/207844/?r=5&index=1&category=index',
@@ -673,7 +671,7 @@ function getItem(data){
         checked:false
       },{
         id:2,
-        标题:'ERICD',
+        title:'ERICD',
         封面:market2,
         图片名称:'ERICD2017新版型新面料爆款T恤99元3件装',
         更新时间:'99.00',
@@ -684,7 +682,7 @@ function getItem(data){
         checked:false
       },{
         id:3,
-        标题:'hanalice',
+        title:'hanalice',
         封面:market3,
         图片名称:'hanalice彩虹糖系列蝴蝶芭蕾平底鞋（十五色）',
         更新时间:'139.00',
@@ -695,7 +693,7 @@ function getItem(data){
         checked:false
       },{
         id:4,
-        标题:'觅潮记',
+        title:'觅潮记',
         封面:market4,
         图片名称:'粮赞低糖手工莲子火腿桂花板栗蟹黄绿茶月饼礼盒  中秋月饼礼盒',
         更新时间:'139.00',
@@ -706,7 +704,7 @@ function getItem(data){
         checked:false
       },{
         id:5,
-        标题:'macbook',
+        title:'macbook',
         封面:market5,
         图片名称:'好柿来了 | 土楼红柿 4斤',
         更新时间:'149.00',
@@ -717,7 +715,7 @@ function getItem(data){
         checked:false
       },{
         id:6,
-        标题:'小巨蛋',
+        title:'小巨蛋',
         封面:market6,
         图片名称:'茯缘高山原叶手筑茯砖茶400g',
         更新时间:'139.00',
@@ -729,4 +727,20 @@ function getItem(data){
       }];
   }
 }
-export default Homepage;
+
+function mapStateToProps(state, ownProps){
+    return {
+        title:state.consultationReducer.title,
+        data:state.consultationReducer.data
+    }
+}
+const mapDispatchToProps = {
+
+};
+
+Homepage = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Homepage);
+
+export { Homepage };

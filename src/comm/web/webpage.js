@@ -6,7 +6,7 @@ import {
   Redirect,
   Link,
 } from 'react-router-dom';
-import Homepage from './homepage';
+import { Homepage } from './homepage';
 import Read from './read/read';
 import WebImage from './webImage/webImage';
 import Rone from './read/detail/Rone';
