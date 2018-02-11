@@ -7,11 +7,14 @@ import {
   Link,
 
 } from 'react-router-dom';
-import $ from 'jquery';
 import './webpage.css';
+
+const imgURL = require.context("../img",true,/^\.\/.*\.webp$/);
+const projectURl = imgURL.keys().map(imgURL);
+
 let logo  = require('./img/logo.gif');
 let banner  = require('./img/banner.gif');
-// let rabbit = require('./img/p1430226140.webp');
+
 let img1 = require('./img/1.webp');
 let img2 = require('./img/2.webp');
 let img3 = require('./img/3.webp');
@@ -40,68 +43,13 @@ let u17 = require('./webImage/images/u1323769-8.jpg');
 let u18 = require('./webImage/images/u1073557-16.jpg');
 let u19 = require('./webImage/images/u63985391-16.jpg');
 let u20 = require('./webImage/images/u21565824-22.jpg');
-let img1_1 = require('./webImage/images/p2201465584.webp');
-let img1_2 = require('./webImage/images/p2201683567.webp');
-let img1_3 = require('./webImage/images/p2201801329.webp');
-let img1_4 = require('./webImage/images/p2201801338.webp');
-let img1_5 = require('./webImage/images/p2201801401.webp');
-let img1_6 = require('./webImage/images/p2201801403.webp');
 
-let img2_1 = require('./webImage/images/p2496090156.webp');
-let img2_2 = require('./webImage/images/p2496090160.webp');
-let img2_3 = require('./webImage/images/p2496090161.webp');
-let img2_4 = require('./webImage/images/p2496090164.webp');
-let img2_5 = require('./webImage/images/p2496090166.webp');
-let img2_6 = require('./webImage/images/p2496090167.webp');
-
-let img3_1 = require('./webImage/images/p2495967745.webp');
-let img3_2 = require('./webImage/images/p2495967411.webp');
-let img3_3 = require('./webImage/images/p2495970932.webp');
-let img3_4 = require('./webImage/images/p2496706521.webp');
-let img3_5 = require('./webImage/images/p2497278159.webp');
-let img3_6 = require('./webImage/images/p2497415258.webp');
-
-let img4_1 = require('./webImage/images/p2497540936.webp');
-let img4_2 = require('./webImage/images/p2496607316.webp');
-let img4_3 = require('./webImage/images/p2496642779.webp');
-let img4_4 = require('./webImage/images/p2496607304.webp');
-let img4_5 = require('./webImage/images/p2496607306.webp');
-let img4_6 = require('./webImage/images/p2496607312.webp');
-
-let img5_1 = require('./webImage/images/p2496207023.webp');
-let img5_2 = require('./webImage/images/p2496206806.webp');
-let img5_3 = require('./webImage/images/p2496206781.webp');
-let img5_4 = require('./webImage/images/p2496206736.webp');
-let img5_5 = require('./webImage/images/p2496206669.webp');
-let img5_6 = require('./webImage/images/p2496206512.webp');
-
-let img6_1 = require('./webImage/images/p2493231086.webp');
-let img6_2 = require('./webImage/images/p2493230842.webp');
-let img6_3 = require('./webImage/images/p2493231046.webp');
-let img6_4 = require('./webImage/images/p2493231056.webp');
-let img6_5 = require('./webImage/images/p2493231011.webp');
-let img6_6 = require('./webImage/images/p2493231094.webp');
-
-let img7_1 = require('./webImage/images/p2495104146.webp');
-let img7_2 = require('./webImage/images/p2495071023.webp');
-let img7_3 = require('./webImage/images/p2495172353.webp');
-let img7_4 = require('./webImage/images/p2495071025.webp');
-let img7_5 = require('./webImage/images/p2495070696.webp');
-let img7_6 = require('./webImage/images/p2495341059.webp');
-
-let img8_1 = require('./webImage/images/p2496034293.webp');
-let img8_2 = require('./webImage/images/p2496034154.webp');
-let img8_3 = require('./webImage/images/p2496034293.webp');
-let img8_4 = require('./webImage/images/p2496034603.webp');
-let img8_5 = require('./webImage/images/p2496034762.webp');
-let img8_6 = require('./webImage/images/p2496039044.webp');
-
-let market1 = require('./webImage/images/p1974318.jpg');
-let market2 = require('./webImage/images/p1964580.jpg');
-let market3 = require('./webImage/images/p1989799.jpg');
-let market4 = require('./webImage/images/p1987630.jpg');
-let market5 = require('./webImage/images/p504264.jpg');
-let market6 = require('./webImage/images/p1934032.jpg');
+let market1 = require('./webImage/images/market1.jpg');
+let market2 = require('./webImage/images/market2.jpg');
+let market3 = require('./webImage/images/market3.jpg');
+let market4 = require('./webImage/images/market4.jpg');
+let market5 = require('./webImage/images/market5.jpg');
+let market6 = require('./webImage/images/market6.jpg');
 // console.log(img8_6);
 let hot = require('./webImage/images/hot.jpg')
 let uadmin = require('../web/webImage/images/timg.jpg')
@@ -200,7 +148,7 @@ class Homepage extends Component{
   render(){
     let {img,market} = this.state;
     let { data } = this.props;
-    let img1 = Object.assign(img);
+    let img1 = this.props.imgData;
     let image = null;
     let image1 = null;
     let article1 = data.data;
@@ -208,22 +156,27 @@ class Homepage extends Component{
     let art1 = null;
     let market1 = Object.assign(market);
     let supermarket = null;
-    if(img.length){
-      localStorage.setItem('img',JSON.stringify(img));
-    }
+
+    // let srcURL = '';
+    //
+    // for(let i=0;i<projectURl.length;i++){
+    //   if(projectURl[i].indexOf(img1[i].cover) > 0){
+    //       srcURL = projectURl[i];
+    //   }
+    // }
     if(market.length){
       localStorage.setItem('market',JSON.stringify(market));
     }
     image = img1.map((e,i)=>{
       let data = {
-        img:e.封面,
+        img:e.cover,
         txt:e.title,
-      }
+      };
       if(i <= 3){
         return <dl key={i+1} className="img_dl">
                 <dt key={i+2}>
                   <span className="img_span" key={i+3}>
-                  <Link to={'/web/webimage/'+e.id}><img src={data.img} key={i+4}/></Link>
+                  <Link to={'/web/webimage/'+e.id}><img src={projectURl[i].indexOf(img1[i].cover) > 0 ? projectURl[i] : ''} key={i+4}/></Link>
                   </span>
                 </dt>
                 <dd key={i+5}>
@@ -231,19 +184,19 @@ class Homepage extends Component{
                 </dd>
               </dl>
       }
-    })
+    });
     image1 = img1.map((e,i)=>{
       let data = {
-        img:e.封面,
+        img:e.cover,
         txt:e.title,
         id:e.id,
         key:i
-      }
+      };
       if(i<8){
         return <dl key={i+1} className="img_dl">
                 <dt key={i+2}>
                   <span key={i+3} className="img_span">
-                  <Link  key={i+4} to={'/web/webimage/'+e.id}><img src={data.img} /></Link>
+                  <Link  key={i+4} to={'/web/webimage/'+e.id}><img src={projectURl[i].indexOf(img1[i].cover) > 0 ? projectURl[i] : ''} /></Link>
                   </span>
                 </dt>
                 <dd key={i+5}>
@@ -252,12 +205,12 @@ class Homepage extends Component{
               </dl>
       }
 
-    })
+    });
     art = article1.map((e,i)=>{
       return <li  key={i+1}
         onClick={this.artClick}
         ><Link to={'/homeimage/'+e.id} id = {e.id}>{e.title}</Link></li>
-    })
+    });
     art1 = article1.map((e,i)=>{
       if(i<=4){
         return <Link key={i+6} to={'/homeimage/'+e.id} id = {e.id}>
@@ -270,13 +223,13 @@ class Homepage extends Component{
                 </div>
               </Link>
       }
-    })
+    });
     supermarket = market1.map((e,i)=>{
       return  <div  key={i+12} className="grid-item">
                 <div key={i+11}  className="product-item" data-id="90190">
                   <div key={i+10}  className="p-img">
                     <a key={i+9}  href={e.href} target="_blank" title="小巨蛋T1便携式茶具礼品套装砂岩釉茶盒版（极客黑）">
-                      <img key={i+8}  className="market_img" src={e.封面} />
+                      <img key={i+8}  className="market_img" src={e.cover} />
                     </a>
                   </div>
                   <div key={i+7}  className="p-title">
@@ -293,7 +246,7 @@ class Homepage extends Component{
                   </div>
                 </div>
               </div>
-    })
+    });
     return(
       <div className="webpage">
         <div id="web_banner">
@@ -539,118 +492,7 @@ function getItem(data){
           }
       ];
   }else if(data === 'img'){
-      return JSON.parse(localStorage.getItem('img')) || [
-        {
-          title:'没有青海湖和茶卡的青海',
-          id:1651058003,
-          封面:img1,
-          更新时间:'2017-8-15',
-          发布状态:'已发布',
-          操作:'jj',
-          动作:'审核',
-          checked:false,
-          头像:u13,
-          title:'葫芦娃你站住的相册',
-          info:'hahahah',
-          num:150,
-          img:[img2_1,img2_2,img2_3,img2_4,img2_5,img2_6]
-
-        },
-        {
-          title:'「人们」',
-          id:1638051845,
-          封面:img2,
-          更新时间:'2017-8-15',
-          发布状态:'已发布',
-          操作:'jj',
-          动作:'审核',
-          checked:false,
-          头像:u14,
-          title:'Doublescotch的相册',
-          num:150,
-          img:[img3_1,img3_2,img3_3,img3_4,img3_5,img3_6]
-
-        },{
-         title:'总有新的世界在等你－日本',
-         id:1651158281,
-         封面:img3,
-         更新时间:'2017-8-15',
-         发布状态:'已发布',
-         操作:'jj',
-         动作:'审核',
-         checked:false,
-         头像:u15,
-         title:'王小爆的相册',
-         num:97,
-         img:[img1_1,img1_2,img1_3,img1_4,img1_1,img1_5]
-        },{
-          title:'看 云',
-          id:1651235694,
-          封面:img4,
-          更新时间:'2017-8-15',
-          发布状态:'已发布',
-          操作:'jj',
-          动作:'审核',
-          checked:false,
-          头像:u16,
-          title:'若酱的相册',
-          num:150,
-          img:[img4_1,img4_2,img4_3,img4_4,img4_5,img4_6]
-
-        },{
-          title:'在商业社会做个堂堂正正的废物会死吗？',
-          id:1651117401,
-          封面:img5,
-          更新时间:'2017-8-15',
-          发布状态:'已发布',
-          操作:'jj',
-          动作:'审核',
-          checked:false,
-          头像:u17,
-          title:'松本南国的相册',
-          num:150,
-          img:[img5_1,img5_2,img5_3,img5_4,img5_5,img5_6]
-        },{
-          title:'萨尔兹卡默古特',
-          id:1649846355,
-          封面:img6,
-          更新时间:'2017-8-15',
-          发布状态:'已发布',
-          操作:'jj',
-          动作:'审核',
-          checked:false,
-          头像:u18,
-          title:'缅怀树的相册',
-          num:150,
-          img:[img6_1,img6_2,img6_3,img6_4,img6_5,img6_6]
-        },{
-          title:'夏天去香港看海',
-          id:1650648598,
-          封面:img7,
-          更新时间:'2017-8-15',
-          发布状态:'已发布',
-          操作:'jj',
-          动作:'审核',
-          checked:false,
-          头像:u19,
-          title:'Moony的相册',
-          num:150,
-          img:[img7_1,img7_2,img7_3,img7_4,img7_5,img7_6]
-        },{
-          title:'北京红冶钢厂',
-          id:1651038482,
-          封面:img8,
-          更新时间:'2017-8-15',
-          发布状态:'已发布',
-          操作:'jj',
-          动作:'审核',
-          checked:false,
-          头像:u20,
-          title:'杨大壹的相册',
-          num:150,
-          img:[img8_1,img8_2,img8_3,img8_4,img8_5,img8_6]
-        }
-      ]
+      return JSON.parse(localStorage.getItem('img')) || []
     // }
 
   }else if(data === 'market'){
@@ -661,7 +503,7 @@ function getItem(data){
       return JSON.parse(localStorage.getItem('market')) || [{
         id:1,
         title:'悦诗风吟',
-        封面:market1,
+        cover:market1,
         图片名称:'innisfree 悦诗风吟 绿茶籽精萃水分菁露 80ml/瓶',
         href:'https://market.douban.com/item/207844/?r=5&index=1&category=index',
         更新时间:'139.00',
@@ -672,7 +514,7 @@ function getItem(data){
       },{
         id:2,
         title:'ERICD',
-        封面:market2,
+        cover:market2,
         图片名称:'ERICD2017新版型新面料爆款T恤99元3件装',
         更新时间:'99.00',
         href:'https://market.douban.com/item/204712/?r=5&index=2&category=index',
@@ -683,7 +525,7 @@ function getItem(data){
       },{
         id:3,
         title:'hanalice',
-        封面:market3,
+        cover:market3,
         图片名称:'hanalice彩虹糖系列蝴蝶芭蕾平底鞋（十五色）',
         更新时间:'139.00',
         href:'https://market.douban.com/item/213750/?r=5&index=3&category=index',
@@ -694,7 +536,7 @@ function getItem(data){
       },{
         id:4,
         title:'觅潮记',
-        封面:market4,
+        cover:market4,
         图片名称:'粮赞低糖手工莲子火腿桂花板栗蟹黄绿茶月饼礼盒  中秋月饼礼盒',
         更新时间:'139.00',
         href:'https://market.douban.com/item/215268/?r=5&index=4&category=index',
@@ -705,7 +547,7 @@ function getItem(data){
       },{
         id:5,
         title:'macbook',
-        封面:market5,
+        cover:market5,
         图片名称:'好柿来了 | 土楼红柿 4斤',
         更新时间:'149.00',
         href:'https://market.douban.com/item/31078/?r=5&index=5&category=index',
@@ -716,7 +558,7 @@ function getItem(data){
       },{
         id:6,
         title:'小巨蛋',
-        封面:market6,
+        cover:market6,
         图片名称:'茯缘高山原叶手筑茯砖茶400g',
         更新时间:'139.00',
         href:'https://market.douban.com/item/109603/?r=5&index=6&category=index',
@@ -731,7 +573,8 @@ function getItem(data){
 function mapStateToProps(state, ownProps){
     return {
         title:state.consultationReducer.title,
-        data:state.consultationReducer.data
+        data:state.consultationReducer.data,
+        imgData:state.imageReducer.data.data
     }
 }
 const mapDispatchToProps = {

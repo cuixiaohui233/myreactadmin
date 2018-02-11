@@ -1,5 +1,6 @@
 import keymirror from 'keymirror';
 
-let  Consulttation = {
-
-};
+let  ConsulttationConstants = keymirror({
+    CONSULT_SAVE_CHANGE:null
+});
+export { ConsulttationConstants };

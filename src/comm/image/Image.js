@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import { connect } from 'react-redux';
 import PickerSizesDemo1 from '../Data/Dateimage';
 import DelandAdd from './DelandAdd';
 import Tr from '../image/Tr';
@@ -35,7 +36,7 @@ class Image extends Component{
   constructor(){
     super();
     this.state = {
-      title:['','id','标题','封面','相册描述','更新时间','发布状态','操作'],
+      title:['','id','title','cover','相册描述','time','status','todo'],
       data:[],
       power:[
         {name:'admin',type:'admin'},
@@ -47,9 +48,6 @@ class Image extends Component{
     }
   }
   componentDidMount(){
-    this.setState({
-      data:getItem('img')
-    });
   }
   delete = (newID)=>{
     // console.log(newID)
@@ -100,7 +98,7 @@ class Image extends Component{
     })
     return num+1;
   }
-  //更新时间
+  //time
   changeTime = ()=>{
     let date = new Date();
     let date1 = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
@@ -146,7 +144,7 @@ class Image extends Component{
     data1.map((e,i)=>{
       if(e.id === newData.id){
         e.分类 = newData.分类
-        e.标题 = newData.标题
+        e.title = newData.title
         e.作者 = newData.作者
         e.info = newData.info
       }
@@ -173,7 +171,7 @@ class Image extends Component{
   del_img = (newId,newTitle)=>{
     // console.log(this.state.data,newTitle);
     let newData = this.state.data.filter((e,i)=>{
-      if(e.标题 === newTitle){
+      if(e.title === newTitle){
         return e;
       }
     })
@@ -186,7 +184,7 @@ class Image extends Component{
 //  console.log(newData,newData.img);
   }
   render(){
-    let {data,title} = this.state;
+    let {data,title} = this.props;
     let data1 = Object.assign(data);
     let list = null;
     let item = null;
@@ -194,29 +192,27 @@ class Image extends Component{
     let filterview = null;
     switch (this.state.view) {
       case 'search':
-        filterview = this.state.info
+        filterview = this.state.info;
         break;
       case 'all':
-        filterview = this.state.data
+        filterview = data1;
         break;
     }
     if(this.props.power === 'admin'){
       if(filterview.length){
         list = filterview.map((e,i)=>{
-          // console.log(e);
           let data = {
             id:e.id,
-            标题:e.标题,
-            封面:e.封面,
-            图片名称:e.图片名称,
+            title:e.title,
+            cover:e.cover,
             Tags:e.Tags,
-            更新时间:e.更新时间,
-            发布状态:e.发布状态,
-            动作:e.动作,
-            操作:e.操作,
+            time:e.time,
+            status:e.status,
+            operation:e.operation,
+            todo:e.todo,
             info:e.info,
             img:e.img,
-            头像:e.头像,
+            head:e.head,
             key:i+new Date,
             checked:e.checked,
             delete:this.delete,
@@ -226,7 +222,7 @@ class Image extends Component{
             del_img:this.del_img
           }
           if(i>(this.state.page-1)*3-1 && i<=this.state.page*3-1){
-            return <Tr {...data} title={title}/>
+            return <Tr {...data}/>
           }
         });
         localStorage.setItem('img',JSON.stringify(data));
@@ -251,7 +247,7 @@ class Image extends Component{
     }else{
       let title1 = Object.assign(title);
       title1.map((e,i)=>{
-        if(e === '操作'){
+        if(e === 'todo'){
           title1.splice(i,1);
         }
       })
@@ -264,13 +260,13 @@ class Image extends Component{
       list = filterview.map((e,i)=>{
         let data = {
           id:e.id,
-          标题:e.标题,
-          封面:e.封面,
+          title:e.title,
+          cover:e.cover,
           图片名称:e.图片名称,
           Tags:e.Tags,
-          更新时间:e.更新时间,
-          发布状态:e.发布状态,
-          操作:e.操作,
+          time:e.time,
+          status:e.status,
+          todo:e.todo,
           info:e.info,
           key:i+new Date,
           checked:e.checked,
@@ -303,128 +299,27 @@ class Image extends Component{
           </tbody>
         </table>
         <Page
-          data={this.state.data}
+          data={data}
           changepage={this.changepage}
         />
       </div>
     )
   }
 }
-function getItem(data){
-  return JSON.parse(localStorage.getItem(data)) || [
-    {
-      标题:'没有青海湖和茶卡的青海',
-      id:1651058003,
-      封面:img1,
-      更新时间:'2017-8-15',
-      发布状态:'已发布',
-      操作:'jj',
-      动作:'审核',
-      checked:false,
-      头像:'https://img3.doubanio.com/icon/u74022697-14.jpg',
-      title:'葫芦娃你站住的相册',
-      info:'hahahah',
-      num:150,
-      img:['https://img1.doubanio.com/view/photo/lthumb/public/p2496090327.webp','https://img3.doubanio.com/view/photo/lthumb/public/p2496090472.webp','https://img3.doubanio.com/view/photo/lthumb/public/p2496090471.webp']
 
-    },{
-      标题:'「人们」',
-      id:1638051845,
-      封面:img2,
-      更新时间:'2017-8-15',
-      发布状态:'已发布',
-      操作:'jj',
-      动作:'审核',
-      checked:false,
-      头像:'https://img1.doubanio.com/icon/u4058053-68.jpg',
-      title:'葫芦娃你站住的相册',
-      num:150,
-      img:['https://img1.doubanio.com/view/photo/lthumb/public/p2496090327.webp','https://img3.doubanio.com/view/photo/lthumb/public/p2496090472.webp','https://img3.doubanio.com/view/photo/lthumb/public/p2496090471.webp']
-
-    },{
-     标题:'湿湿的梦',
-     id:1651158281,
-     封面:img3,
-     更新时间:'2017-8-15',
-     发布状态:'已发布',
-     操作:'jj',
-     动作:'审核',
-     checked:false,
-     头像:'https://img3.doubanio.com/icon/u74022697-14.jpg',
-     title:'chaosmiao的相册',
-     num:97,
-     img:['https://img1.doubanio.com/view/photo/lthumb/public/p2496300719.webp','https://img3.doubanio.com/view/photo/lthumb/public/p2496300723.webp','https://img1.doubanio.com/view/photo/lthumb/public/p2496300747.webp']
-    },{
-      标题:'即时乐树',
-      id:1647018236,
-      封面:img4,
-      更新时间:'2017-8-15',
-      发布状态:'已发布',
-      操作:'jj',
-      动作:'审核',
-      checked:false,
-      头像:'https://img3.doubanio.com/icon/u74022697-14.jpg',
-      title:'葫芦娃你站住的相册',
-      num:150,
-      img:['https://img1.doubanio.com/view/photo/lthumb/public/p2496090327.webp','https://img3.doubanio.com/view/photo/lthumb/public/p2496090472.webp','https://img3.doubanio.com/view/photo/lthumb/public/p2496090471.webp']
-
-    },{
-      标题:'在商业社会做个堂堂正正的废物会死吗？',
-      id:1651117401,
-      封面:img5,
-      更新时间:'2017-8-15',
-      发布状态:'已发布',
-      操作:'jj',
-      动作:'审核',
-      checked:false,
-      头像:'https://img3.doubanio.com/icon/u74022697-14.jpg',
-      title:'葫芦娃你站住的相册',
-      num:150,
-      img:['https://img1.doubanio.com/view/photo/lthumb/public/p2496090327.webp','https://img3.doubanio.com/view/photo/lthumb/public/p2496090472.webp','https://img3.doubanio.com/view/photo/lthumb/public/p2496090471.webp']
-
-    },{
-      标题:'萨尔兹卡默古特',
-      id:1649846355,
-      封面:img6,
-      更新时间:'2017-8-15',
-      发布状态:'已发布',
-      操作:'jj',
-      动作:'审核',
-      checked:false,
-      头像:'https://img3.doubanio.com/icon/u74022697-14.jpg',
-      title:'葫芦娃你站住的相册',
-      num:150,
-      img:['https://img1.doubanio.com/view/photo/lthumb/public/p2496090327.webp','https://img3.doubanio.com/view/photo/lthumb/public/p2496090472.webp','https://img3.doubanio.com/view/photo/lthumb/public/p2496090471.webp']
-
-    },{
-      标题:'夏天去香港看海',
-      id:1650648598,
-      封面:img7,
-      更新时间:'2017-8-15',
-      发布状态:'已发布',
-      操作:'jj',
-      动作:'审核',
-      checked:false,
-      头像:'https://img3.doubanio.com/icon/u74022697-14.jpg',
-      title:'葫芦娃你站住的相册',
-      num:150,
-      img:['https://img1.doubanio.com/view/photo/lthumb/public/p2496090327.webp','https://img3.doubanio.com/view/photo/lthumb/public/p2496090472.webp','https://img3.doubanio.com/view/photo/lthumb/public/p2496090471.webp']
-
-    },{
-      标题:'北京红冶钢厂',
-      id:1651038482,
-      封面:img8,
-      更新时间:'2017-8-15',
-      发布状态:'已发布',
-      操作:'jj',
-      动作:'审核',
-      checked:false,
-      头像:'https://img3.doubanio.com/icon/u74022697-14.jpg',
-      title:'葫芦娃你站住的相册',
-      num:150,
-      img:['https://img1.doubanio.com/view/photo/lthumb/public/p2496090327.webp','https://img3.doubanio.com/view/photo/lthumb/public/p2496090472.webp','https://img3.doubanio.com/view/photo/lthumb/public/p2496090471.webp']
-
+function mapStateToProps(state, ownProps){
+    return {
+        title:state.imageReducer.title,
+        data:state.imageReducer.data.data
     }
-  ]
 }
+const mapDispatchToProps = {
+
+};
+
+Image = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Image);
+
 export default Image;

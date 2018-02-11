@@ -9,6 +9,8 @@ import {BrowserRouter as Router,
   Switch
 } from 'react-router-dom';
 
+const imgURL = require.context("../img",true,/^\.\/.*\.webp$/);
+const projectURl = imgURL.keys().map(imgURL);
 
 class Tr extends Component{
   constructor(){
@@ -37,24 +39,21 @@ class Tr extends Component{
     let data = {
       id:this.props.id,
       item:this.props.item,
-      标题:this.props.标题,
-      作者:this.props.作者,
-      更新时间:this.props.更新时间,
-      内容:this.props.内容,
-      发布状态:this.props.发布状态,
-      动作:this.props.动作,
+      title:this.props.title,
+      time:this.props.time,
+      todo:this.props.todo,
       info:this.props.info,
       img:this.props.img,
       checked:this.props.checked,
       changedata:this.props.changedata,
       del_img:this.props.del_img
-    }
+    };
     let h = null;
-    if(this.props.动作){
+    if(this.props.todo){
       h = <td>
         {/* <a href="javascript:;"
         onClick = {this.click1}
-      >{this.props.动作}</a> */}
+      >{this.props.todo}</a> */}
       <span className="change_val">
         <Link to="/changeval1">
           <Icon type="edit" />
@@ -77,6 +76,14 @@ class Tr extends Component{
     }else{
       icon = <Icon type="check-square-o" />
     }
+    let { id, title, info, time, status, cover } = this.props;
+    let img = '';
+    console.log(projectURl);
+    projectURl.forEach(function (e,i) {
+       if(e.indexOf(cover) > 0){
+         img = e;
+       }
+    });
     return(
       <Router>
         <tr>
@@ -84,13 +91,12 @@ class Tr extends Component{
              onClick={this.check_box}
              >
            {icon}</td>
-          <td>{this.props.id}</td>
-          <td>{this.props.标题}</td>
-          <td className="img_tr"><img src={this.props.封面} className="imgW"/></td>
-          {/* <td>{this.props.info}</td> */}
-          <td>{this.props.info}</td>
-          <td>{this.props.更新时间}</td>
-          <td>{this.props.发布状态}</td>
+          <td>{id}</td>
+          <td>{title}</td>
+          <td className="img_tr"><img src={img} className="imgW"/></td>
+          <td>{info}</td>
+          <td>{time}</td>
+          <td>{status}</td>
           {h}
         </tr>
       </Router>
