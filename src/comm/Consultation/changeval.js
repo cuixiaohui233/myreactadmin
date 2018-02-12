@@ -1,9 +1,9 @@
 import React,{Component} from 'react';
+import { connect } from 'react-redux';
+import { consultActionCreator } from '../../store/Consultation_action_creator';
 import './changeval.css';
 import { Icon,Button, notification }from 'antd';
-// import Consult from './Consult';
-import {BrowserRouter as Router,Route,Link,Redirect} from 'react-router-dom';
-// import Nologin from './no_login';
+import { Link } from 'react-router-dom';
 
 class Changecontent extends Component{
   constructor(props){
@@ -20,29 +20,29 @@ class Changecontent extends Component{
     this.setState({
       title:ev.target.value
     })
-  }
+  };
   changeTextarea = (ev)=>{
     this.setState({
       textarea:ev.target.value
     })
-  }
+  };
   changewriter = (ev)=>{
     this.setState({
       changewriter:ev.target.value
     })
-  }
+  };
   changeitem = (ev)=>{
     this.setState({
       feilei:ev.target.value
     })
-  }
+  };
   changeVal = ()=>{
     let {title,textarea,changewriter} = this.state;
     if(title && textarea && changewriter){
-      this.props.changedata({
+      this.props.saveChange({
         id:this.props.id,
-        分类:this.classify.value,
-        标题:title,
+        classify:this.value,
+        title:this.title,
         作者:changewriter,
         内容:this.state.textarea
       });
@@ -50,18 +50,25 @@ class Changecontent extends Component{
     this.setState({
       bool:true
     })
-  }
+  };
   render(){
+    let { data, id } = this.props;
+    console.log(data,id);
+    let data1 = Object.assign(data);
+    let changeData = data1.filter(function(e){
+      return e.id === id
+    });
+    console.log(changeData);
     return(
       <div className="addContent">
           <from>
             <p className="title_short" ><span><i>*</i>文章标题：</span><input
               type="text"
               onChange={this.change}
-              value={this.state.title}
+              value={changeData.title}
             /></p>
             <p className="title_short"><span>文章分类：</span><select
-              value={this.state.feilei}
+              value={changeData.classify}
               ref = {(elem)=>{this.classify = elem}}
               name=""
               className="select"
@@ -89,7 +96,7 @@ class Changecontent extends Component{
             <p className="title_short"><span><i>*</i>文章作者：</span><input
               type="text"
               onChange={this.changewriter}
-              value={this.state.changewriter}
+              value={changeData.author}
             /></p>
           </from>
         <span className="off"><Link to="/image"><Icon type="close" /></Link></span>
@@ -109,4 +116,19 @@ class Changecontent extends Component{
     )
   }
 }
+function mapStateToProps(state,ownProps) {
+  return {
+    data:state.consultationReducer.data.data,
+    id:ownProps.id
+  }
+}
+
+const mapDispatchToProps = {
+  saveChange:consultActionCreator.saveChange
+};
+
+Changecontent = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Changecontent);
 export default Changecontent;

@@ -1,9 +1,8 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
 import PickerSizesDemo from '../Data/Date';
-
-// import { Alert } from 'antd';
-import { Button, notification } from 'antd'
+import { Button, notification } from 'antd';
+import { consultActionCreator } from '../../store/Consultation_action_creator';
 import Tr from './Tr';
 import DelandAdd from './DelandAdd';
 import Page from '../page/page';
@@ -248,7 +247,7 @@ changecheckbox =(check)=>{
           delete:this.delete,
           change:this.change,
           changecheckbox:this.changecheckbox
-        }
+        };
         if(i>(this.state.page-1)*3-1 && i<=this.state.page*3-1){
           return <Tr {...data} title={title}/>
         }
@@ -256,7 +255,7 @@ changecheckbox =(check)=>{
       // addanddel = <div>欢迎光临</div>
     }
     // <Alert message="Success Tips" type="success" showIcon className={this.state.class}/>
-
+// console.log(this.props.saveChange)
     return (
       <div className="consult">
       <PickerSizesDemo
@@ -293,7 +292,7 @@ function mapStateToProps(state, ownProps){
   }
 }
 const mapDispatchToProps = {
-
+    saveChange:consultActionCreator.saveChange,
 };
 
 Consult = connect(

@@ -1,7 +1,12 @@
-import ConsulttationConstants from '../constants/consultation_constants';
+import { ConsulttationConstants } from '../constants/consultation_constants';
 
 let consultActionCreator = {
-    saveChange:function(){
-        
+    saveChange:function(newData){
+        return {
+            type:ConsulttationConstants.CONSULT_SAVE_CHANGE,
+            newData:newData
+        }
     }
-}
+};
+
+export { consultActionCreator };

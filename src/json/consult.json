@@ -10,7 +10,8 @@
       "item": "行业行情",
       "status": "发布",
       "todo": "审核",
-      "checked": false
+      "checked": false,
+      "classify":"全部类型"
     },
     {
       "title": "独自在家",
@@ -22,7 +23,8 @@
       "item": "行业行情",
       "status": "发布",
       "todo": "审核",
-      "checked": false
+      "checked": false,
+      "classify":"全部类型"
     },
     {
       "title": "当我逛书展不买书时我还能做些什么",
@@ -34,7 +36,8 @@
       "item": "行业行情",
       "status": "发布",
       "todo": "审核",
-      "checked": false
+      "checked": false,
+      "classify":"全部类型"
     },
     {
       "title": "艺术又终结了吗？",
@@ -46,7 +49,8 @@
       "item": "行业行情",
       "status": "发布",
       "todo": "审核",
-      "checked": false
+      "checked": false,
+      "classify":"全部类型"
     },
     {
       "title": "终于，和林家栋谈了谈电影、表演和金像奖影帝",
@@ -58,7 +62,8 @@
       "item": "行业行情",
       "status": "发布",
       "todo": "审核",
-      "checked": false
+      "checked": false,
+      "classify":"全部类型"
     },
     {
       "title": "新品种草&经典回顾丨谁能不爱哑光口红",
@@ -70,7 +75,8 @@
       "item": "行业行情",
       "status": "发布",
       "todo": "审核",
-      "checked": false
+      "checked": false,
+      "classify":"全部类型"
     },
     {
       "title": "青梅竹马这件小事",
@@ -82,7 +88,8 @@
       "item": "行业行情",
       "status": "发布",
       "todo": "审核",
-      "checked": false
+      "checked": false,
+      "classify":"全部类型"
     },
     {
       "title": "今 敏先生去世的第七年，回忆他曾经的自叙",
@@ -94,7 +101,8 @@
       "item": "行业行情",
       "status": "发布",
       "todo": "审核",
-      "checked": false
+      "checked": false,
+      "classify":"全部类型"
     },
     {
       "title": "希望还是虚妄？十字路口的国产动画电影",
@@ -106,7 +114,8 @@
       "item": "行业行情",
       "status": "发布",
       "todo": "审核",
-      "checked": false
+      "checked": false,
+      "classify":"全部类型"
     },
     {
       "title": "7位女摄影师拍同一对姑娘",
@@ -118,7 +127,8 @@
       "item": "行业行情",
       "status": "发布",
       "todo": "审核",
-      "checked": false
+      "checked": false,
+      "classify":"全部类型"
     },
     {
       "title": "这支香，仿佛收集了整个夏天的阳光",
@@ -130,7 +140,8 @@
       "item": "行业行情",
       "status": "发布",
       "todo": "审核",
-      "checked": false
+      "checked": false,
+      "classify":"全部类型"
     },
     {
       "title": "我唐日常（十五）猝不及防的更新",
@@ -142,7 +153,8 @@
       "item": "行业行情",
       "status": "发布",
       "todo": "审核",
-      "checked": false
+      "checked": false,
+      "classify":"全部类型"
     }
   ]
 }
