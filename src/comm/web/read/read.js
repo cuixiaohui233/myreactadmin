@@ -1,17 +1,11 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
 import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
   Link,
 
 } from 'react-router-dom';
 import './read.css';
 class Read extends Component{
-  constructor(){
-    super();
-  }
   render(){
 //  console.log(this.props.stateBool);
     let data = this.props.data;
@@ -20,7 +14,7 @@ class Read extends Component{
     let list = null;
     list = data1.map((e,i)=>{
       return <Link to={'/web/read/'+e.id}><div className="webpage_read">
-        <p className="web_read_img_span"><img src={e.avatar} /><span className="authorname">{e.author}</span></p>
+        <p className="web_read_img_span"><img src={e.avatar} alt="" /><span className="authorname">{e.author}</span></p>
         <span id="read_title" >{e.title}</span>
         <p className="read_title_p">{e.content}</p>
       </div></Link>

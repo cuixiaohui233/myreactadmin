@@ -13,7 +13,7 @@ import Rone from './read/detail/Rone';
 import Rtwo from './webImage/detail/Rone';
 import App from '../../App';
 import WrappedNormalLoginForm from '../Login/weblogin';
-import Add from '../add/add';
+// import Add from '../add/add';
 import Addadmin from '../add/addadmin';
 let logo  = require('./img/logo.gif');
 let uadmin = require('../web/webImage/images/timg.jpg')
@@ -98,7 +98,7 @@ class Webpage extends Component{
         <nav>
           <div className="nav">
             <div id="web_logo">
-              <Link to="/home"><img src={logo} className="logo_img"/></Link>
+              <Link to="/home"><img src={logo} className="logo_img" alt=""/></Link>
               <input type="text" className="logo_input"/>
             </div>
             <div id="web_item">
@@ -122,14 +122,14 @@ class Webpage extends Component{
           return <WebImage />
         }} />
         <Route path="/app/content" render={()=>{
-          if(this.state.stateBool == 'true'){
+          if(this.state.stateBool === 'true'){
             return <App power={this.state.states} />
-          }else if(this.state.stateBool == 'false'){
+          }else if(this.state.stateBool === 'false'){
             // alert('请先登录！')
             return <Redirect to="/home/login" />
-          }else if(this.state.stateBool == 'add'){
+          }else if(this.state.stateBool === 'add'){
             return <Redirect to="/add" />
-          }else if(this.state.stateBool == 'addmin'){
+          }else if(this.state.stateBool === 'addmin'){
             return <Redirect to="/addmin" />
           }
         }} />

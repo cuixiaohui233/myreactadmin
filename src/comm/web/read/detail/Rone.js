@@ -1,11 +1,5 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link,
-} from 'react-router-dom';
 import { Rate } from 'antd';
 import $ from 'jquery';
 import './read_item.css';
@@ -34,7 +28,7 @@ class Rone extends Component{
     let data = this.props.data.data;
     console.log(data);
     let data1 = Object.assign(data);
-    data1 = data1.find((e)=>e.id == this.state.url);
+    data1 = data1.find((e)=>e.id === this.state.url);
     if(data1.type){
       this.setState({
         title:data1.标题,
@@ -71,7 +65,7 @@ class Rone extends Component{
     let data = this.props.data.data;
     console.log(data);
     let data1 = Object.assign(data);
-    data1 = data1.find((e)=>e.id == this.state.url);
+    data1 = data1.find((e)=>e.id === this.state.url);
     if(data1.type){
       document.getElementById("actic").innerHTML = `<p>${data1.内容}</p>`;
     }else{
@@ -89,7 +83,7 @@ class Rone extends Component{
     let {pinfo} = this.state;
     let data1 = Object.assign(pinfo);
     let num = 0;
-    data1.map((e,i)=>{
+    data1.forEach((e,i)=>{
       if(e.id > num){
         num = e.id;
       }
@@ -102,7 +96,7 @@ class Rone extends Component{
     let arr2 = JSON.parse(localStorage.getItem('users'))||[];
     let arr3 = [];
     if(arr2.length){
-      let arr3 = arr2.filter((e,i)=>e.userType === e.username) || [];
+      arr3 = arr2.filter((e,i)=>e.userType === e.username) || [];
       // console.log(arr3);
       if(arr3[0] && arr3[0].userType){
         if(this.state.val){

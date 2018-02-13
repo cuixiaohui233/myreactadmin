@@ -1,4 +1,3 @@
-import { applymiddleware, create} from 'redux';
 import data from '../json/image.json';
 
 let imageInitialState = {

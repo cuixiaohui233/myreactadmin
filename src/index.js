@@ -4,10 +4,13 @@ import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 import Webpage from './comm/web/webpage';
 import { Provider } from 'react-redux';
-import { store } from './store/store';
+import { store, persistor } from './store/store';
+import { PersistGate } from 'redux-persist/integration/react';
 ReactDOM.render(
     <Provider store={store}>
-        <Webpage />
+        <PersistGate loading={null} persistor={persistor}>
+            <Webpage />
+        </PersistGate>
     </Provider>
   ,
    document.getElementById('root'));

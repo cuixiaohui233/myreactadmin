@@ -1,9 +1,6 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
 import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
   Link,
 
 } from 'react-router-dom';
@@ -12,17 +9,10 @@ import './webpage.css';
 const imgURL = require.context("../img",true,/^\.\/.*\.webp$/);
 const projectURl = imgURL.keys().map(imgURL);
 
-let logo  = require('./img/logo.gif');
+// let logo  = require('./img/logo.gif');
 let banner  = require('./img/banner.gif');
 
-let img1 = require('./img/1.webp');
-let img2 = require('./img/2.webp');
-let img3 = require('./img/3.webp');
-let img4 = require('./img/4.webp');
-let img5 = require('./img/5.webp');
-let img6 = require('./img/6.webp');
-let img7 = require('./img/7.webp');
-let img8 = require('./img/8.webp');
+
 let u1 = require('./webImage/images/u4058053-68.jpg');
 let u2 = require('./img/u2905955-15.jpg');
 let u3 = require('./img/u3340912-61.jpg');
@@ -35,14 +25,6 @@ let u9 = require('./img/u158210937-7.jpg');
 let u10 = require('./img/u34715093-12.jpg');
 let u11 = require('./img/u38396260-11.jpg');
 let u12 = require('./img/u51610855-17.jpg');
-let u13 = require('./img/u-img/u74022697-14.jpg');
-let u14 = require('./img/u-img/u2775094-59.jpg');
-let u15 = require('./webImage/images/u93592263-4.jpg');
-let u16 = require('./webImage/images/u53177132-53.jpg');
-let u17 = require('./webImage/images/u1323769-8.jpg');
-let u18 = require('./webImage/images/u1073557-16.jpg');
-let u19 = require('./webImage/images/u63985391-16.jpg');
-let u20 = require('./webImage/images/u21565824-22.jpg');
 
 let market1 = require('./webImage/images/market1.jpg');
 let market2 = require('./webImage/images/market2.jpg');
@@ -51,15 +33,14 @@ let market4 = require('./webImage/images/market4.jpg');
 let market5 = require('./webImage/images/market5.jpg');
 let market6 = require('./webImage/images/market6.jpg');
 // console.log(img8_6);
-let hot = require('./webImage/images/hot.jpg')
-let uadmin = require('../web/webImage/images/timg.jpg')
+let hot = require('./webImage/images/hot.jpg');
+let uadmin = require('../web/webImage/images/timg.jpg');
 class Homepage extends Component{
   constructor(){
     super();
     this.state = {
       hot:[],
       article:[],
-      arr:[],
       img:[],
       market:[],
       list:[],
@@ -125,8 +106,8 @@ class Homepage extends Component{
                     arr2[i].userType = null;
                   }
                 }
-                arr2.map((e,i)=>{
-                  if(e.username == this.state.val){
+                arr2.forEach((e,i)=>{
+                  if(e.username === this.state.val){
                     e.userType = e.username;
                   }
                 })

@@ -116,6 +116,7 @@ class Changecontent extends Component{
     )
   }
 }
+
 function mapStateToProps(state,ownProps) {
   return {
     data:state.consultationReducer.data.data,
