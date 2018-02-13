@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PickerSizesDemo from '../Data/Date';
 import { Button, notification } from 'antd';
 import { consultActionCreator } from '../../store/Consultation_action_creator';
-import Tr from './Tr';
+import { Tr } from './Tr';
 import DelandAdd from './DelandAdd';
 import Page from '../page/page';
 import './consult.css'
@@ -286,6 +286,7 @@ changecheckbox =(check)=>{
 }
 
 function mapStateToProps(state, ownProps){
+  console.log(state.consultationReducer.data);
   return {
       title:state.consultationReducer.title,
       data:state.consultationReducer.data.data

@@ -1,15 +1,11 @@
 import React,{Component} from 'react';
-import { Form, Icon } from 'antd';import App from '../../App';
+import { Form, Icon } from 'antd';
+// import App from '../../App';
 import {
-  Route,
   Link,
-  Switch,
-  Redirect,
 } from 'react-router-dom';
 
 import './Login.css';
-import Add from '../add/add';
-import Webpage from '../web/homepage';
 let uadmin = require('../web/webImage/images/timg.jpg')
 // const FormItem = Form.Item;
 

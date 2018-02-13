@@ -164,7 +164,10 @@ class Homepage extends Component{
                   <Link to={'/web/webimage/'+e.id}>{data.txt}</Link>
                 </dd>
               </dl>
+      }else {
+          return null;
       }
+
     });
     image1 = img1.map((e,i)=>{
       let data = {
@@ -184,6 +187,8 @@ class Homepage extends Component{
                   <Link  key={i+6} to={'/web/webimage/'+e.id}>{data.txt}</Link>
                 </dd>
               </dl>
+      }else {
+          return null;
       }
 
     });
@@ -203,6 +208,8 @@ class Homepage extends Component{
                   </div>
                 </div>
               </Link>
+      }else {
+          return null;
       }
     });
     supermarket = market1.map((e,i)=>{

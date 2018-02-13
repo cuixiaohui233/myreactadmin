@@ -1,6 +1,7 @@
 import { applyMiddleware, createStore, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
+
 import storage from 'redux-persist/lib/storage';
 
 import { consultationReducer } from './Consultation_Reducer';
@@ -14,8 +15,8 @@ const appReducer = combineReducers({
 
 
 const persistConfig = {
-    key:'root',
-    storage
+    key:'hhh',
+    storage,
 };
 
 const persistedReducer = persistReducer(persistConfig, appReducer);

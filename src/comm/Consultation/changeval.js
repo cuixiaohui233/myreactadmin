@@ -37,16 +37,21 @@ class Changecontent extends Component{
     })
   };
   changeVal = ()=>{
-    let {title,textarea,changewriter} = this.state;
-    if(title && textarea && changewriter){
-      this.props.saveChange({
-        id:this.props.id,
-        classify:this.value,
-        title:this.title,
-        作者:changewriter,
-        内容:this.state.textarea
+    let { data, id } = this.props;
+    let data1 = Object.assign(data);
+    let newData = data1.filter(function(e){
+        return e.id === id
+    });
+    newData[0].author = '张燕辉';
+    newData[0].title = '废了';
+    let index = -1;
+    data.forEach(function(e,i){
+        if(e.id === id){
+            index = i;
+        }
       });
-    }
+    data.splice(index,1,newData[0]);
+    this.props.saveChange({data:data});
     this.setState({
       bool:true
     })
@@ -65,10 +70,10 @@ class Changecontent extends Component{
             <p className="title_short" ><span><i>*</i>文章标题：</span><input
               type="text"
               onChange={this.change}
-              value={changeData.title}
+              value={changeData[0].title}
             /></p>
             <p className="title_short"><span>文章分类：</span><select
-              value={changeData.classify}
+              value={changeData[0].classify}
               ref = {(elem)=>{this.classify = elem}}
               name=""
               className="select"
@@ -88,7 +93,7 @@ class Changecontent extends Component{
                 placeholder="说点什么...最少输入10个字符"
                 datatype="*10-100"
                 onChange={this.changeTextarea}
-                value={this.state.textarea}
+                value={changeData[0].content}
                 >
                  </textarea>
 
@@ -96,7 +101,7 @@ class Changecontent extends Component{
             <p className="title_short"><span><i>*</i>文章作者：</span><input
               type="text"
               onChange={this.changewriter}
-              value={changeData.author}
+              value={changeData[0].author}
             /></p>
           </from>
         <span className="off"><Link to="/image"><Icon type="close" /></Link></span>

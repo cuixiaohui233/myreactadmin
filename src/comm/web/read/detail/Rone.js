@@ -101,7 +101,7 @@ class Rone extends Component{
       if(arr3[0] && arr3[0].userType){
         if(this.state.val){
           // console.log(new Date);
-          let time = new Date;
+          let time = new Date();
           let time1 = time.getFullYear() + '年'+(time.getMonth()+1) + '月'+time.getDate() + '日' + time.getHours() + ':'+time.getMinutes()+':'+time.getSeconds();
           // console.log(time1);
           let data = {
@@ -147,7 +147,7 @@ class Rone extends Component{
   }
   collectclick = (ev)=>{
     ev.preventDefault();
-    let {pinfo,title} = this.state;
+    let {pinfo} = this.state;
     let arr1 = Object.assign(pinfo);
     let arr2 = JSON.parse(localStorage.getItem('users'))||[];
     if(arr2.length){

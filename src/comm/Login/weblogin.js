@@ -1,18 +1,11 @@
 import React,{Component} from 'react';
 // import { Alert } from 'antd';
 import { Form, Icon,Alert } from 'antd';
-import App from '../../App';
 import {
-  Route,
   Link,
-  Switch,
-  Redirect,
 } from 'react-router-dom';
 import './Login.css';
-import Add from '../add/add';
-import Webpage from '../web/homepage';
-// const FormItem = Form.Item;
-let uadmin = require('../web/webImage/images/timg.jpg')
+let uadmin = require('../web/webImage/images/timg.jpg');
 
 let list = null;
 class NormalLoginForm extends Component {
@@ -79,7 +72,7 @@ class NormalLoginForm extends Component {
                   }
                 }
                 arr2.map((e,i)=>{
-                  if(e.username == this.state.val){
+                  if(e.username === this.state.val){
                     e.userType = e.username;
                   }
                 })

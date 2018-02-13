@@ -1,4 +1,6 @@
 import React,{Component} from 'react';
+import { connect } from 'react-redux';
+import { consultActionCreator } from '../../store/Consultation_action_creator';
 import Changecontent from './changeval';
 import { Icon } from 'antd';
 import './table.css';
@@ -102,4 +104,21 @@ class Tr extends Component{
     )
   }
 }
-export default Tr
+
+function mapStateToProps(state,ownProps) {
+    return {
+        data:state.consultationReducer.data.data,
+        // title:state.title
+    }
+}
+
+const mapDispatchToProps = {
+    deleteChange:consultActionCreator.deleteChange
+};
+
+Tr = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Tr);
+
+export { Tr };

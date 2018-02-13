@@ -1,9 +1,6 @@
 import React,{Component} from 'react';
 import {
-  Route,
   Link,
-  Switch,
-  Redirect,
 } from 'react-router-dom';
 import { Icon,Radio } from 'antd';
 import { Homepage as Webpage} from '../web/homepage';
@@ -23,7 +20,6 @@ class Addadmin extends Component{
       penname:'',
       oneselfinfo:'',
       password:'',
-      email:'',
       checked:false,
       bool:false,
       userType:null,
@@ -100,23 +96,23 @@ class Addadmin extends Component{
     let arr1 = Object.assign(arr);
     let arr2 = getItem('users');
     // console.log(arr2);
-    if(this.state.name && this.state.pass && (this.state.num ==1 || this.state.num ==2 ||this.state.num ==3 || this.state.num ==4) && this.state.value){
+    if(this.state.name && this.state.pass && (this.state.num ===1 || this.state.num === 2 ||this.state.num === 3 || this.state.num === 4) && this.state.value){
       if(arr2.find(e => e.username === this.state.name)){
         alert('换个名字吧！');
         this.props.changeRoute('addmin','member');
       }else{
         let time = new Date();
         let timer = '';
-        if(this.state.num ==1){
+        if(this.state.num === 1){
           timer = time.getFullYear()+'年' + (time.getMonth()+2) +'月'+time.getDate()+'日';
           // timer = timer+30;
-        }else if(this.state.num ==2){
+        }else if(this.state.num === 2){
           // timer = timer+(12*30);
           timer = (time.getFullYear()+1)+'年' + (time.getMonth()+1) +'月'+time.getDate()+'日';
-        }else if(this.state.num ==3){
+        }else if(this.state.num === 3){
           // timer = timer+(3*30);
           timer = time.getFullYear()+'年' + (time.getMonth()+4) +'月'+time.getDate()+'日';
-        }else if(this.state.num ==4){
+        }else if(this.state.num === 4){
           // timer = timer+30;
           timer = time.getFullYear()+'年' + (time.getMonth()+2) +'月'+time.getDate()+'日';
         }
@@ -224,16 +220,16 @@ class Addadmin extends Component{
           <ul>
             <li
               onClick={this.click}
-              className = "title_long" id="1">连续包月10元<Icon type="check" className={this.state.num == 1?"anticon-check-show dui1":"dui1"} /></li><br />
+              className = "title_long" id="1">连续包月10元<Icon type="check" className={this.state.num === 1?"anticon-check-show dui1":"dui1"} /></li><br />
             <li
               onClick={this.click}
-              className = "title_long" id="2">12个月108元<del>180</del><Icon type="check" className={this.state.num == 2?"anticon-check-show dui2":"dui2"}  /></li><br />
+              className = "title_long" id="2">12个月108元<del>180</del><Icon type="check" className={this.state.num === 2?"anticon-check-show dui2":"dui2"}  /></li><br />
             <li
               onClick={this.click}
-              className = "title_long" id="3">3个月30元<del>45</del><Icon type="check"  className={this.state.num == 3?"anticon-check-show dui3":"dui3"}  /></li><br />
+              className = "title_long" id="3">3个月30元<del>45</del><Icon type="check"  className={this.state.num === 3?"anticon-check-show dui3":"dui3"}  /></li><br />
             <li
               onClick={this.click}
-              className = "title_long" id="4">1个月15元<Icon type="check"  className={this.state.num == 4?"anticon-check-show dui4":"dui4"}  /></li><br />
+              className = "title_long" id="4">1个月15元<Icon type="check"  className={this.state.num === 4?"anticon-check-show dui4":"dui4"}  /></li><br />
           </ul>
 
         </div>

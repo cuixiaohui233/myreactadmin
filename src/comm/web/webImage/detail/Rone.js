@@ -1,14 +1,4 @@
 import React,{Component} from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link,
-} from 'react-router-dom';
-import { Rate } from 'antd';
-import $ from 'jquery';
-// import './read_item.css';
-
 class Rtwo extends Component{
   constructor(props){
     super(props);
