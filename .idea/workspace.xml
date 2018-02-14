@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a2d2728-973d-4ad1-adc3-0e281ddeb54b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/comm/Consultation/Consult.js" afterPath="$PROJECT_DIR$/src/comm/Consultation/Consult.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/comm/Consultation/Tr.js" afterPath="$PROJECT_DIR$/src/comm/Consultation/Tr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/comm/Consultation/changeval.js" afterPath="$PROJECT_DIR$/src/comm/Consultation/changeval.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/comm/Login/loginrouter.js" afterPath="$PROJECT_DIR$/src/comm/Login/loginrouter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/comm/Login/weblogin.js" afterPath="$PROJECT_DIR$/src/comm/Login/weblogin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/comm/add/addadmin.js" afterPath="$PROJECT_DIR$/src/comm/add/addadmin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/comm/web/homepage.js" afterPath="$PROJECT_DIR$/src/comm/web/homepage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/comm/web/read/detail/Rone.js" afterPath="$PROJECT_DIR$/src/comm/web/read/detail/Rone.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/comm/web/webImage/detail/Rone.js" afterPath="$PROJECT_DIR$/src/comm/web/webImage/detail/Rone.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/constants/consultation_constants.js" afterPath="$PROJECT_DIR$/src/constants/consultation_constants.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/store/Consultation_Reducer.js" afterPath="$PROJECT_DIR$/src/store/Consultation_Reducer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/store/Consultation_action_creator.js" afterPath="$PROJECT_DIR$/src/store/Consultation_action_creator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/store/store.js" afterPath="$PROJECT_DIR$/src/store/store.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -54,8 +43,8 @@
       <file leaf-file-name="changeval.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/comm/Consultation/changeval.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
-              <caret line="39" column="34" lean-forward="false" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+            <state relative-caret-position="355">
+              <caret line="53" column="39" lean-forward="false" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -66,7 +55,7 @@
       <file leaf-file-name="Tr.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/comm/Consultation/Tr.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
+            <state relative-caret-position="253">
               <caret line="111" column="5" lean-forward="true" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
@@ -98,7 +87,7 @@
       <file leaf-file-name="Consult.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/comm/Consultation/Consult.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
+            <state relative-caret-position="271">
               <caret line="291" column="46" lean-forward="true" selection-start-line="291" selection-start-column="46" selection-end-line="291" selection-end-column="46" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
@@ -107,11 +96,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Consultation_Reducer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DelandAdd.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/comm/Consultation/DelandAdd.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="3" lean-forward="true" selection-start-line="12" selection-start-column="2" selection-end-line="17" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Consultation_Reducer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/store/Consultation_Reducer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+            <state relative-caret-position="330">
+              <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -149,8 +150,8 @@
       <find>==</find>
       <find>saveChange</find>
       <find>T</find>
-      <find>delVal</find>
       <find>change</find>
+      <find>delVal</find>
       <find>CONSULT_SAVE_CHANGE</find>
       <find>Tr</find>
     </findStrings>
@@ -198,8 +199,8 @@
         <option value="$PROJECT_DIR$/src/comm/Consultation/Tr.js" />
         <option value="$PROJECT_DIR$/src/store/store.js" />
         <option value="$PROJECT_DIR$/src/store/Consultation_action_creator.js" />
-        <option value="$PROJECT_DIR$/src/comm/Consultation/changeval.js" />
         <option value="$PROJECT_DIR$/src/comm/Consultation/Consult.js" />
+        <option value="$PROJECT_DIR$/src/comm/Consultation/changeval.js" />
         <option value="$PROJECT_DIR$/src/store/Consultation_Reducer.js" />
       </list>
     </option>
@@ -645,12 +646,12 @@
       <updated>1517577658376</updated>
       <workItem from="1517577660250" duration="2676000" />
       <workItem from="1517640027390" duration="12648000" />
-      <workItem from="1518318135180" duration="14473000" />
+      <workItem from="1518318135180" duration="16190000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29797000" />
+    <option name="totallyTimeSpent" value="31514000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -950,7 +951,7 @@
         <state relative-caret-position="-739">
           <caret line="118" column="29" lean-forward="false" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="29" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -960,7 +961,7 @@
         <state relative-caret-position="457">
           <caret line="245" column="42" lean-forward="true" selection-start-line="245" selection-start-column="42" selection-end-line="245" selection-end-column="42" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="false" />
             <element signature="e#12574#16185#0" expanded="false" />
           </folding>
         </state>
@@ -984,21 +985,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/comm/Consultation/Tr.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="111" column="5" lean-forward="true" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/store.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="61" lean-forward="false" selection-start-line="2" selection-start-column="61" selection-end-line="2" selection-end-column="61" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/json/consult.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-544">
+          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/comm/Consultation/changeval.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="53" column="39" lean-forward="false" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1012,21 +1021,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/comm/Consultation/changeval.js">
+    <entry file="file://$PROJECT_DIR$/src/comm/Consultation/Tr.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="39" column="34" lean-forward="false" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+        <state relative-caret-position="253">
+          <caret line="111" column="5" lean-forward="true" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/json/consult.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1035,16 +1036,6 @@
         <state relative-caret-position="105">
           <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="19" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/comm/Consultation/Consult.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="291" column="46" lean-forward="true" selection-start-line="291" selection-start-column="46" selection-end-line="291" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1058,10 +1049,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/store/Consultation_Reducer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+        <state relative-caret-position="330">
+          <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/comm/Consultation/Consult.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="291" column="46" lean-forward="true" selection-start-line="291" selection-start-column="46" selection-end-line="291" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/comm/Consultation/DelandAdd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="3" lean-forward="true" selection-start-line="12" selection-start-column="2" selection-end-line="17" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>

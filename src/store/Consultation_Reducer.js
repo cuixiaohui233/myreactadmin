@@ -16,11 +16,11 @@ let consultationInitialState = {
 function consultationReducer(state = consultationInitialState, action ){
 
     switch(action.type){
-        case ConsulttationConstants.CONSULT_SAVE_CHANGE:
-            console.log(action.data)
-            return Object.assign({}, state, {
-                data:action.newData
-            });
+        // case ConsulttationConstants.CONSULT_SAVE_CHANGE:
+        //     console.log(action.data)
+        //     return Object.assign({}, state, {
+        //         data:action.newData
+        //     });
         case ConsulttationConstants.CHANGE_TITLE:
             return Object.assign({}, state, {
                 data:action.data
