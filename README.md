@@ -1,15 +1,19 @@
-安装：
+# 安装：
    
    npm install 
    
    npm run build
+   
+# 链接：
+   
+   https://cuixiaohui233.github.io
 
-项目
+# 项目
 
 ## 一、项目描述
    此项目是利用当前市场上最流行的前端框架之一react来完成的，这个项目是通过react-app+React-Router4来搭建的，分为前台页面和后台管理界面，达到了组件管理数据并通信共享的目的。本项目使用ES6语法规范和JSX语法，分为18个组件，其中后台管理系统10个组件，前台页面3个组件，用户登录、注册、个人中心5个组件，各个组件各司其职，组件的可复用性和扩展性很高。
    
-## 二、技术栈:React+React-router+antd-design+jQuery 
+## 二、技术栈:React+React-router+antd-design+axios
 
 ## 三、项目设计思路与主要功能
 
