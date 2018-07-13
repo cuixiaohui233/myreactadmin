@@ -1,4 +1,6 @@
 #### 2018-07-13 本项目一周年。review and Restructure.
+#### Logo 变了，这个设计也难逃仿豆瓣的嫌疑。
+
 # 安装：
    
    npm install 
